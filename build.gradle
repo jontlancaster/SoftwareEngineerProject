@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.4.1"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+dependencies {
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+    implementation files('SubscriptionEncryption/lib/SubscriptionUtility.jar')
+}
