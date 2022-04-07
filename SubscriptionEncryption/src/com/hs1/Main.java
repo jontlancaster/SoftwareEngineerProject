@@ -10,21 +10,20 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        //utilizing inversion of control for our security so we can know how to encode / decode
-        Security security = new Security((int) (Math.random() * 10) + 1);
-
         //1. Call the method getSubscriptions to get a list of Subscription information in JSON
         // (In this case the customer ID does not matter so choose your favorite number).
         SubscriptionChecker subscriptionChecker = new SubscriptionChecker();
 
         //2. Encode, encrypt or somehow obfuscate the data and save it to a file.
+        //utilizing inversion of control for our security so we can set encode / decode for unit testing
+        Security security = new Security((int) (Math.random() * 10) + 1);
         int[] encodedJSON = security.encode(subscriptionChecker.getSubscriptions(123));
 
         //write encoded JSON to file
         FileUtil.writeToFile(encodedJSON);
 
         //3. Load the file you saved and decode or decrypt the data.
-        int[] encodedDataFromFile = FileUtil.getEncodedDataFromFile(FileUtil.getFileContents());
+        int[] encodedDataFromFile = FileUtil.convertFileContents(FileUtil.getFileContents());
 
         //decode subscriptions from file
         String decodedJSON = security.decode(encodedDataFromFile);

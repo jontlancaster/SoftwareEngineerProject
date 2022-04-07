@@ -25,20 +25,20 @@ public class FileUtil {
     }
 
     //converting string back to int[]
-    public static int[] getEncodedDataFromFile(String fileString) {
+    public static int[] convertFileContents(String fileContentsStr) {
 
-        //we need to get rid of stuff from the file and get it back into an array
-        String[] string = fileString.replaceAll("\\[", "")
+        //we need to get file contents back into an array
+        String[] fileContentsArr = fileContentsStr.replaceAll("\\[", "")
                 .replaceAll("]", "")
                 .split(", ");
 
-        int[] encodedArr = new int[string.length];
+        int[] contentsArr = new int[fileContentsArr.length];
 
-        //loop through our values, add them back to array as an integer
-        for (int i = 0; i < string.length; i++) {
-            encodedArr[i] = Integer.parseInt(string[i]);
+        //loop through our string values and convert them to int for decode
+        for (int i = 0; i < fileContentsArr.length; i++) {
+            contentsArr[i] = Integer.parseInt(fileContentsArr[i]);
         }
 
-        return encodedArr;
+        return contentsArr;
     }
 }

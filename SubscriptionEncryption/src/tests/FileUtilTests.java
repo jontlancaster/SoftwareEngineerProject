@@ -28,7 +28,7 @@ class FileUtilTests {
     @Test
     @DisplayName("It should take a string turn it back into an int array")
     void testGetEncodedDataFromFile() {
-        assertArrayEquals(FileUtil.getEncodedDataFromFile(Arrays.toString(expectedArr)), expectedArr);
+        assertArrayEquals(FileUtil.convertFileContents(Arrays.toString(expectedArr)), expectedArr);
     }
 
     @AfterAll
