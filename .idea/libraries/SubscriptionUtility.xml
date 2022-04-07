@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SubscriptionUtility">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SubscriptionEncryption/lib/SubscriptionUtility.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
